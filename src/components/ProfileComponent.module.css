@@ -1,0 +1,16 @@
+.content {
+    grid-area: c;
+    background-color: antiquewhite;
+}
+
+img {
+    width: 100%;
+}
+
+.item {
+    color: greenyellow;
+}
+
+.posts {
+    font-weight: lighter;
+}

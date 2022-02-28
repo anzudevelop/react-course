@@ -1,8 +1,11 @@
 // Можно сделать этот файл и с расширением .js
+
+import s from './ProfileComponent.module.css'
+
 const ProfileComponent = () => {
     return (
-        <div className="content">
-            <div className="panoramaImage">
+        <div className={s.content}>
+            <div>
                 <img src="http://darvidart.com.au/Gallery/photos/IMG_1309.jpg" alt=""/>
             </div>
             <div>
@@ -13,11 +16,13 @@ const ProfileComponent = () => {
                 <div>
                     New post
                 </div>
-                <div>
-                    post 1
-                </div>
-                <div>
-                    post 2
+                <div className={s.posts}>
+                    <div className={s.item}>
+                        post 1
+                    </div>
+                    <div className={s.item}>
+                        post 2
+                    </div>
                 </div>
             </div>
         </div>
