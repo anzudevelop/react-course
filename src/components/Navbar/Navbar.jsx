@@ -8,7 +8,7 @@ const Navbar = () => {
             <div className={s.item}>
                 <a>Profile</a>
             </div>
-            <div className={`${s.item} ${s.active}`}>   //Два класса сразу
+            <div className={`${s.item} ${s.active}`}>
                 <a>Messages</a>
             </div>
             <div className={s.item}>
