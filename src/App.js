@@ -3,6 +3,7 @@ import './App.css';
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import ProfileComponent from "./components/Profile/ProfileComponent";
+import Dialogs from "./components/Dialogs/Dialogs"
 
 //test commit 2
 const App = () => {
@@ -10,7 +11,10 @@ const App = () => {
       <div className='app-wrapper'>
           <Header />
           <Navbar />
-          <ProfileComponent />
+          <div className='app-wrapper-content'>
+              {/*<ProfileComponent />*/}
+              <Dialogs />
+          </div>
       </div>
   );
 }

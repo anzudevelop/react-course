@@ -5,7 +5,7 @@ import MyPosts from "./MyPosts/MyPosts";
 
 const ProfileComponent = () => {
     return (
-        <div className={s.content}>
+        <div>
             <div>
                 <img src="http://darvidart.com.au/Gallery/photos/IMG_1309.jpg" alt=""/>
             </div>
