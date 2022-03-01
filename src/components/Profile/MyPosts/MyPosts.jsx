@@ -11,11 +11,12 @@ const MyPosts = () => {
                 <button>Remove</button>
             </div>
             <div className={s.posts}>
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
+                console.log(props)
+                <Post message='Hello everybody' likeCounts="1"/>
+                <Post message='Hello world' likeCounts="5"/>
+                <Post message='How are you?' likeCounts="18"/>
+                <Post message="What's up!" likeCounts="3"/>
+                <Post message='Just a post' likeCounts="26"/>
             </div>
         </div>
     );

@@ -1,12 +1,12 @@
 import s from './Post.module.css'
 
-const Post = () => {
+const Post = (props) => {
     return (
-        <div className={s.item}>
+        <div className={ s.item }>
             <img src="https://steemitimages.com/DQmaYTpZQZpowS29qfETHZjGtXwPd5TgNA9vvMrSgxv3ZRa/avatar1600.png"/>
-            post 1
+            { props.message }
             <div>
-                <span>like</span>
+                <span>{ props.likeCounts } likes</span>
             </div>
         </div>
     );
