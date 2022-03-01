@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import ProfileComponent from "./components/ProfileComponent";
 
-//test commit
+//test commit 2
 const App = () => {
   return (
       <div className='app-wrapper'>
