@@ -34,6 +34,7 @@ const Dialogs = (props) => {
         {id:3, message:"What's up!"},
         {id:4, message:"Pashol von"},
         {id:5, message:"Yo!"},
+        {id:6, message:"Hello"},
     ]
 
     let messagesElement = messagesData

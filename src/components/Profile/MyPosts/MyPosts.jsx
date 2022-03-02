@@ -9,6 +9,7 @@ const MyPosts = () => {
         {id:3, postText:"How are you?", likesCounts:18},
         {id:4, postText:"What's up!", likesCounts:3},
         {id:5, postText:"Just a post", likesCounts:26},
+        {id:6, postText:"First post", likesCounts:6},
     ]
 
     let postsElements = postsData.map((p) => (<Post message={ p.postText } likeCounts={ p.likesCounts }/>))
