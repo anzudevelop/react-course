@@ -1,3 +1,8 @@
 .posts {
     font-weight: lighter;
+    margin-top: 10px;
+}
+
+.MyPostsBlock {
+    padding: 10px;
 }

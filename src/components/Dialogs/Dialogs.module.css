@@ -19,10 +19,16 @@
     font-size: 15pt;
 }
 
+.dialog img{
+    height: 50px;
+    width: 50px;
+    border-radius: 30px;
+}
+
 .messages {
     padding: 10px;
 }
 
 .message {
-
+    font-family: Arial, Verdana, sans-serif;
 }

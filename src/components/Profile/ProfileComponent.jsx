@@ -2,16 +2,12 @@
 
 import s from './ProfileComponent.module.css'
 import MyPosts from "./MyPosts/MyPosts";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const ProfileComponent = () => {
     return (
         <div>
-            <div>
-                <img src="http://darvidart.com.au/Gallery/photos/IMG_1309.jpg" alt=""/>
-            </div>
-            <div>
-                ava + description
-            </div>
+            <ProfileInfo />
             <MyPosts />
         </div>
     );
