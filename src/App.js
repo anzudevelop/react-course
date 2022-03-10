@@ -13,7 +13,7 @@ const App = (props) => {
       <BrowserRouter>
           <div className='app-wrapper'>
               <Header />
-              <Navbar />
+              <Navbar friends={props.state.sidebar.friends}/>
               <div className='app-wrapper-content'>
                   <Routes>
                       <Route path="/profile/*" element={<ProfileComponent posts={ props.state.profilePage.posts }/>}/>
