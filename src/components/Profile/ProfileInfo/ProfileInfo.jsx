@@ -6,7 +6,7 @@ const ProfileInfo = () => {
     return (
         <div>
             <div>
-                <img src="https://sun9-43.userapi.com/impf/c852232/v852232040/51de2/oLemJi4HXN0.jpg?size=2560x1707&quality=96&sign=b793b422fa714830159fc8ad2b19c6fa&type=album" alt=""/>
+                <img src="https://api.apdnews.com/uploads/20180907/NQrX4pdw8avpBH8Jj7xDtR6OOoHCeh2B.jpg" alt=""/>
             </div>
             <div className={s.discriptionBlock}>
                 ava + description

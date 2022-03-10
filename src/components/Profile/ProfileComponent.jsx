@@ -4,11 +4,11 @@ import s from './ProfileComponent.module.css'
 import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
-const ProfileComponent = () => {
+const ProfileComponent = (props) => {
     return (
         <div>
             <ProfileInfo />
-            <MyPosts />
+            <MyPosts posts={ props.posts }/>
         </div>
     );
 }
