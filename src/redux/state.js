@@ -31,6 +31,7 @@ let state = {
             {id:2, name:"Матвей", img:"https://sun4-15.userapi.com/s/v1/ig2/XCTeA82CNGFL2iqqCLyF9p0FN-lCIvuIo3m9V_kQCCyiWK8hVjlnYdfewb-o6tnXzZEYoVju7oqaG4ogkAy9ptzP.jpg?size=50x50&quality=96&crop=0,417,1620,1620&ava=1"},
             {id:3, name:"Влад", img:"https://sun4-17.userapi.com/s/v1/if1/PI92XMRkl3N_ZOD0QBYFuo6NzJfUcwvTx8fM0yRh37RnOenBJ0mXq71RPDVRiUdgfBM-_c6m.jpg?size=50x50&quality=96&crop=298,3,2045,2045&ava=1"},
             {id:4, name:"Никита", img:"https://sun4-17.userapi.com/s/v1/if1/Cezd8dI-L8pjjgCXNE2g4X-2RBUkiwutcpfHI7HwGzkqSSlHTpVowoAKz6plstHPFup69QoX.jpg?size=50x50&quality=96&crop=0,187,1365,1365&ava=1"},
+            {id:5, name:"Даня норм поц", img:"https://sun4-15.userapi.com/s/v1/ig2/S205i7auYN3Hvjvqc_VQtsMpmtIMsrVeYoen43lepENWJPjn2Il-YAPcNgJmZ6p0CmVixjvcXJtugS0e6lQEE9PQ.jpg?size=50x50&quality=96&crop=96,320,846,846&ava=1"},
         ]
     },
 }
