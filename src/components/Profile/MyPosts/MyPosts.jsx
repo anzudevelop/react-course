@@ -12,7 +12,7 @@ const MyPosts = (props) => {
     let onAddPostBtnClick = () => {
         let postText = newPostElement.current.value
         if(postText.length <= 0) return
-        alert(postText)
+        props.addPost(postText) //Пока что работать не будет, нужна перерисовка
     }
 
     return (
