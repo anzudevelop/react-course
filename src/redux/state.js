@@ -1,4 +1,7 @@
-import {rerenderEntitreTree} from "../render";
+let rerenderEntitreTree = () => {   // Пустышка, для перезаписи
+    console.log('rerenderEntitreTree')
+}
+
 
 let state = {
     profilePage: {
@@ -43,7 +46,7 @@ let state = {
 
 window.state = state    //Используем state API
 
-export let addPost = () => {
+export const addPost = () => {
     let newPost = {
         id: state.profilePage.posts.length + 1,
         postText: state.profilePage.newPostText,
@@ -54,12 +57,12 @@ export let addPost = () => {
     rerenderEntitreTree(state)
 }
 
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
     state.profilePage.newPostText = newText
     rerenderEntitreTree(state)
 }
 
-export let sendMessage = () => {
+export const sendMessage = () => {
     let newMessage = {
         id: state.messagesPage.messages.length + 1,
         message: state.messagesPage.newMessageText,
@@ -70,9 +73,13 @@ export let sendMessage = () => {
     rerenderEntitreTree(state)
 }
 
-export let updateNewMessageText = (newMessageText) => {
+export const updateNewMessageText = (newMessageText) => {
     state.messagesPage.newMessageText = newMessageText
     rerenderEntitreTree(state)
+}
+
+export const subscribe = (observer) => {
+    rerenderEntitreTree = observer  // Присваиваем функцию к внешней функции (наблюдатель/observer) это паттерн
 }
 
 export default state
