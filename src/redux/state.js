@@ -10,6 +10,7 @@ let state = {
             {id:5, postText:"Just a post", likesCounts:26},
             {id:6, postText:"First post", likesCounts:6},
         ],
+        newPostText: ''
     },
     messagesPage: {
         dialogs: [
@@ -26,6 +27,7 @@ let state = {
             {id:5, message:"Yo!", isMy:false},
             {id:6, message:"Hello", isMy:true},
         ],
+        newMessageText: ''
     },
     sidebar: {
         friends: [
@@ -39,13 +41,37 @@ let state = {
     },
 }
 
-export let addPost = (postMessage) => {
+window.state = state    //Используем state API
+
+export let addPost = () => {
     let newPost = {
         id: state.profilePage.posts.length + 1,
-        postText: postMessage,
+        postText: state.profilePage.newPostText,
         likesCounts: 0,
     }
     state.profilePage.posts.push(newPost)
+    state.profilePage.newPostText = ''
+    rerenderEntitreTree(state)
+}
+
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText
+    rerenderEntitreTree(state)
+}
+
+export let sendMessage = () => {
+    let newMessage = {
+        id: state.messagesPage.messages.length + 1,
+        message: state.messagesPage.newMessageText,
+        isMy: true,
+    }
+    state.messagesPage.messages.push(newMessage)
+    state.messagesPage.newMessageText = ''
+    rerenderEntitreTree(state)
+}
+
+export let updateNewMessageText = (newMessageText) => {
+    state.messagesPage.newMessageText = newMessageText
     rerenderEntitreTree(state)
 }
 
