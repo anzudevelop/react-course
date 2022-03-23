@@ -1,7 +1,6 @@
-const ADD_POST = 'ADD-POST'
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
-const ADD_MESSAGE = 'ADD-MESSAGE'
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT'
+import profilePageReducer from "./profilePageReducer";
+import messagesPageReducer from "./messagesPageReducer";
+import sidebarReducer from "./sidebarReducer";
 
 let store = {
     _state: {
@@ -50,54 +49,17 @@ let store = {
     subscribe(observer) {
         this._callSubscriber = observer  // Присваиваем функцию к внешней функции (наблюдатель/observer) это паттерн
     },
-    dispatch(action) {  // {type: 'ADD-POST'}
-        if (action.type == 'ADD-POST') {
-            let newPost = {
-                id: this._state.profilePage.posts.length + 1,
-                postText: this._state.profilePage.newPostText,
-                likesCounts: 0,
-            }
-            this._state.profilePage.posts.push(newPost)
-            this._state.profilePage.newPostText = ''
-            this._callSubscriber(this._state)
-        }
-        else if (action.type == 'UPDATE-NEW-POST-TEXT') {
-            this._state.profilePage.newPostText = action.newText
-            this._callSubscriber(this._state)
-        }
-        else if (action.type == 'ADD-MESSAGE') {
-            let newMessage = {
-                id: this._state.messagesPage.messages.length + 1,
-                message: this._state.messagesPage.newMessageText,
-                isMy: true,
-            }
-            this._state.messagesPage.messages.push(newMessage)
-            this._state.messagesPage.newMessageText = ''
-            this._callSubscriber(this._state)
-        }
-        else if (action.type == 'UPDATE-NEW-MESSAGE-TEXT') {
-            this._state.messagesPage.newMessageText = action.newMessageText
-            this._callSubscriber(this._state)
-        }
-    },
     _callSubscriber() {
         console.log('State changed')
     },
+    dispatch(action) {  // {type: 'ADD-POST'}
+        this._state.profilePage = profilePageReducer(this._state.profilePage, action)
+        this._state.messagesPage = messagesPageReducer(this._state.messagesPage, action)
+        this._state.sidebar = sidebarReducer(this._state.sidebar, action)
+
+        this._callSubscriber(this._state)
+    },
 }
-
-export const addPostActionCreator = () => ({type: ADD_POST})
-
-export const updateAddPostActionCreator = (newPostText) => ({
-    type: UPDATE_NEW_POST_TEXT,
-    newText: newPostText,
-})
-
-export const addMessageActionCreator = () => ({type: ADD_MESSAGE})
-
-export const updateMessageTextActionCreator = (newMessageText) => ({
-    type: UPDATE_NEW_MESSAGE_TEXT,
-    newMessageText: newMessageText
-})
 
 window.store = store
 export default store
