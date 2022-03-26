@@ -1,12 +1,12 @@
 import s from './ProfileComponent.module.css'
-import MyPosts from "./MyPosts/MyPosts";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const ProfileComponent = (props) => {
     return (
         <div>
             <ProfileInfo />
-            <MyPosts posts={ props.profilePage.posts } dispatch={ props.dispatch }/>
+            <MyPostsContainer store={props.store}/>
         </div>
     );
 }
