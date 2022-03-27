@@ -1,0 +1,9 @@
+.profilePhoto img{
+    position: relative;
+    max-width: 100px;
+    height: auto;
+}
+
+.item {
+    padding: 20px;
+}
