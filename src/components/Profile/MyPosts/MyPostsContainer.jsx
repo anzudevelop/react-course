@@ -2,7 +2,7 @@ import {addPostActionCreator, updateAddPostActionCreator} from "../../../redux/p
 import MyPosts from "./MyPosts";
 import {connect} from "react-redux";
 
-let mapStateToProps = (state) => {
+let mapStateToProps = (state) => {  //Выполнится перерисовка, когда это изменится
     return {
         posts: state.profilePage.posts,
         newPostText: state.profilePage.newPostText,

@@ -5,12 +5,12 @@ import React from "react";
 
 const Dialogs = (props) => {
 
-    let dialogsElements = props.data.dialogs.map((el) => {     //Так
-        return <DialogItem name={ el.name } id={ el.id } img={el.img}/>
+    let dialogsElements = props.data.dialogs.map((el, index) => {     //Так
+        return <DialogItem name={ el.name } key={ index } img={el.img}/>
     })
 
     let messagesElement = props.data.messages
-        .map(msg => (<Message messageText={ msg.message } id={ msg.id } isMy={ msg.isMy }/>))  //Либо так
+        .map((msg, index) => (<Message messageText={ msg.message } key={index} isMy={ msg.isMy }/>))  //Либо так
 
     let newMessageElement = React.createRef()
 
