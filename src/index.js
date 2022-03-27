@@ -19,10 +19,7 @@ let rerenderEntireTree = (state) => {
 
 rerenderEntireTree(store.getState())
 
-store.subscribe(() => {
-    let state = store.getState()
-    rerenderEntireTree(state)
-})  // Создали callback для избежания цикличной зависимости
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
