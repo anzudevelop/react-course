@@ -3,7 +3,7 @@ import * as axios from "axios";
 
 let Users = (props) => {
 
-    if (props.users.length === 0) {
+    let getUsers = () => {
         axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
             props.setUsers(response.data.items)
         })
@@ -12,6 +12,7 @@ let Users = (props) => {
     return (
         <div>
             <b>Users</b>
+            <button onClick={getUsers}>Получить пользователей</button>
             {props.users.map(u => <div key={u.id} className={s.item}>
                 <span>
                     <div className={s.profilePhoto}><img
