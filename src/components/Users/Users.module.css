@@ -7,3 +7,13 @@
 .item {
     padding: 20px;
 }
+
+.selectedPage {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.noneSelectedPage {
+    cursor: pointer;
+    color: grey;
+}
