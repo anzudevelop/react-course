@@ -7,7 +7,7 @@ const FriendsList = (props) => {
         .map((fr) => <Friend name={ fr.name } key={fr.id} img={ fr.img }/>)
 
     return (
-        <div>
+        <div className={s.friendsContent}>
             <h2>Друзья</h2>
             { friendsElements }
         </div>
