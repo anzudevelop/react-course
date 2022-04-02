@@ -44,7 +44,7 @@ const usersPageReducer = (state = initialState, action) => {
     }
 }
 
-export const setUsersAC = (usersList) => ({type: SET_USERS, usersList: usersList})
+export const setUsers = (usersList) => ({type: SET_USERS, usersList: usersList})
 
 export const followUnfollowAC = (userId) => ({type: FOLLOW_UNFOLLOW, id: userId})    // followUnfollowActionCreator
 

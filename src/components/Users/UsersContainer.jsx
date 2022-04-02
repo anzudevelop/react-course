@@ -2,7 +2,7 @@ import {connect} from "react-redux"
 import {
     followUnfollowAC,
     setCurrentPageAC,
-    setUsersAC,
+    setUsers,
     setTotalUsersCountAC,
     toggleIsFetchingAC
 } from "../../redux/UsersPageReducer";
@@ -33,13 +33,13 @@ class UsersContainer extends React.Component {
 
     render() {
         return <>
-            { this.props.isFetching ? <Preloader /> : null}
+            {this.props.isFetching ? <Preloader/> : null}
             <Users totalUsersCount={this.props.totalUsersCount}
-                      pageSize={this.props.pageSize}
-                      currentPage={this.props.currentPage}
-                      onPageChanged={this.onPageChanged}
-                      users={this.props.users}
-                      followUnfollow={this.props.followUnfollow}
+                   pageSize={this.props.pageSize}
+                   currentPage={this.props.currentPage}
+                   onPageChanged={this.onPageChanged}
+                   users={this.props.users}
+                   followUnfollow={this.props.followUnfollow}
             />
         </>
     }
@@ -55,7 +55,7 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
+/*let mapDispatchToProps = (dispatch) => {    //Больше это не нужно
     return {
         setUsers: (usersList) => {
             dispatch(setUsersAC(usersList))
@@ -73,6 +73,12 @@ let mapDispatchToProps = (dispatch) => {
             dispatch(toggleIsFetchingAC(isFetching))
         },
     }
-}
+}*/
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer)
+export default connect(mapStateToProps, {
+    setUsers,   // Можно делать так, если названия совпадают
+    followUnfollow: followUnfollowAC,
+    setCurrentPage: setCurrentPageAC,
+    setTotalUsersCount: setTotalUsersCountAC,
+    toggleIsFetching: toggleIsFetchingAC,
+})(UsersContainer)
