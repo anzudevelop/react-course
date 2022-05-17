@@ -1,6 +1,7 @@
 import s from './Users.module.css'
 import React from 'react'
 import {NavLink} from "react-router-dom";
+import * as axios from "axios";
 
 let Users = (props) => {
 
@@ -9,6 +10,10 @@ let Users = (props) => {
     let pages = []
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i)
+    }
+
+    let followUnfolloFun = () => {
+
     }
 
     return (
@@ -30,7 +35,32 @@ let Users = (props) => {
                         </NavLink>
                     </div>
                     <div><button onClick={() => {
-                        props.followUnfollow(u.id)
+                        //props.followUnfollow(u.id)
+                        if (!u.followed) {
+                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, { //В post запросе withCredentials передается 3 объектом
+                                withCredentials: true,
+                                headers: {
+                                    'API-KEY': '39c617a6-5849-4d40-97e0-e73797f63d9f',
+                                },
+                            }).then(response => {
+                                if (response.data.resultCode == 0) {
+                                    props.followUnfollow(u.id)
+                                }
+                            })
+                        }
+                        else {
+                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
+                                withCredentials: true,
+                                headers: {
+                                    'API-KEY': '39c617a6-5849-4d40-97e0-e73797f63d9f',
+                                },
+                            }).then(response => {
+                                if (response.data.resultCode == 0) {
+                                    props.followUnfollow(u.id)
+                                }
+                            })
+                        }
+
                     }}>{u.followed ? 'Отписаться' : 'Подписаться'}</button></div>
                 </span>
                     <span>
