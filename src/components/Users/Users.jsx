@@ -35,11 +35,13 @@ let Users = (props) => {
                             <img src={u.photos.small || 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1200px-Circle-icons-profile.svg.png'} alt=""/>
                         </NavLink>
                     </div>
-                    <div><button onClick={() => {
+                    <div><button disabled={props.isFollowingInProgress.includes(u.id)} onClick={() => {
+                        props.toggleFollowingProgress(true, u.id)
                         usersAPI.followUnfollow(u.followed, u.id).then(response => {
                             if (response.data.resultCode == 0) {
                                 props.followUnfollow(u.id)
                             }
+                            props.toggleFollowingProgress(false, u.id)
                         })
 
                     }}>{u.followed ? 'Отписаться' : 'Подписаться'}</button></div>
