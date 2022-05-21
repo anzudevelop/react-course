@@ -2,34 +2,21 @@ import {connect} from "react-redux"
 import {
     followUnfollowAC,
     setCurrentPageAC,
-    setUsers,
-    setTotalUsersCountAC,
-    toggleIsFetchingAC, toggleFollowingProgressAC
+    toggleFollowingProgressAC,
+    getUsersThunkCreator, followUnfollow
 } from "../../redux/UsersPageReducer";
 import React from "react";
-import * as axios from "axios";
 import Users from "./Users";
 import Preloader from "../common/preloader/preloader";
-import {usersAPI} from "../../api/api";
 
 class UsersContainer extends React.Component {
 
-    componentDidMount() {   //Здась надо делать все side эффекты
-        this.props.toggleIsFetching(true)
-        usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-            this.props.toggleIsFetching(false)
-            this.props.setUsers(data.items)
-            this.props.setTotalUsersCount(data.totalCount)
-        })
+    componentDidMount() {
+        this.props.getUsers(this.props.currentPage, this.props.pageSize)
     }
 
     onPageChanged = (pageNumber) => {
-        this.props.toggleIsFetching(true)
-        this.props.setCurrentPage(pageNumber)
-        usersAPI.getUsers(pageNumber, this.props.pageSize).then(data => {
-            this.props.toggleIsFetching(false)
-            this.props.setUsers(data.items)
-        })
+        this.props.getUsers(pageNumber, this.props.pageSize)
     }
 
     render() {
@@ -40,9 +27,8 @@ class UsersContainer extends React.Component {
                    currentPage={this.props.currentPage}
                    onPageChanged={this.onPageChanged}
                    users={this.props.users}
-                   followUnfollow={this.props.followUnfollow}
-                   toggleFollowingProgress={this.props.toggleFollowingProgress}
                    isFollowingInProgress={this.props.isFollowingInProgress}
+                   followUnfollow={this.props.followUnfollow}
             />
         </>
     }
@@ -59,31 +45,9 @@ let mapStateToProps = (state) => {
     }
 }
 
-/*let mapDispatchToProps = (dispatch) => {    //Больше это не нужно
-    return {
-        setUsers: (usersList) => {
-            dispatch(setUsersAC(usersList))
-        },
-        followUnfollow: (userId) => {
-            dispatch(followUnfollowAC(userId))
-        },
-        setCurrentPage: (currentPage) => {
-            dispatch(setCurrentPageAC(currentPage))
-        },
-        setTotalUsersCount: (totalCount) => {
-            dispatch(setTotalUsersCountAC(totalCount))
-        },
-        toggleIsFetching: (isFetching) => {
-            dispatch(toggleIsFetchingAC(isFetching))
-        },
-    }
-}*/
-
 export default connect(mapStateToProps, {
-    setUsers,   // Можно делать так, если названия совпадают
-    followUnfollow: followUnfollowAC,
     setCurrentPage: setCurrentPageAC,
-    setTotalUsersCount: setTotalUsersCountAC,
-    toggleIsFetching: toggleIsFetchingAC,
     toggleFollowingProgress: toggleFollowingProgressAC,
+    getUsers: getUsersThunkCreator,
+    followUnfollow,
 })(UsersContainer)

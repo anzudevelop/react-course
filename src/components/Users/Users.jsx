@@ -1,8 +1,6 @@
 import s from './Users.module.css'
 import React from 'react'
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
-import {usersAPI} from "../../api/api";
 
 let Users = (props) => {
 
@@ -13,9 +11,6 @@ let Users = (props) => {
         pages.push(i)
     }
 
-    let followUnfolloFun = () => {
-
-    }
 
     return (
         <div>
@@ -24,27 +19,26 @@ let Users = (props) => {
                     return <span className={props.currentPage === p ? s.selectedPage : s.noneSelectedPage}
                                  onClick={(e) => {
                                      props.onPageChanged(p)
-                                 }}>{p} </span>
-                })}
+                                 }}>{p}
+                        </span>
+                    })
+                }
             </div>
             {
                 props.users.map(u => <div key={u.id} className={s.item}>
                 <span>
                     <div className={s.profilePhoto}>
                         <NavLink to={'/profile/' + u.id}>
-                            <img src={u.photos.small || 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1200px-Circle-icons-profile.svg.png'} alt=""/>
+                            <img
+                                src={u.photos.small || 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1200px-Circle-icons-profile.svg.png'}
+                                alt=""/>
                         </NavLink>
                     </div>
                     <div><button disabled={props.isFollowingInProgress.includes(u.id)} onClick={() => {
-                        props.toggleFollowingProgress(true, u.id)
-                        usersAPI.followUnfollow(u.followed, u.id).then(response => {
-                            if (response.data.resultCode == 0) {
-                                props.followUnfollow(u.id)
-                            }
-                            props.toggleFollowingProgress(false, u.id)
-                        })
-
-                    }}>{u.followed ? 'Отписаться' : 'Подписаться'}</button></div>
+                        props.followUnfollow(u.followed, u.id)
+                    }}>
+                        {u.followed ? 'Отписаться' : 'Подписаться'}
+                    </button></div>
                 </span>
                     <span>
                     <span>
