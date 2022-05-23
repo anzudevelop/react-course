@@ -5,6 +5,7 @@ import sidebarReducer from "./sidebarReducer";
 import UsersPageReducer from "./UsersPageReducer";
 import authReducer from "./authReducer";
 import thunkMiddleware from 'redux-thunk'
+import {withAuthRedirect} from "../hoc/withAuthRecirect";
 
 let reducers = combineReducers({
     profilePage: profilePageReducer,
