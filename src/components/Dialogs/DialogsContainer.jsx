@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 let mapStateToProps = (state) => {
     return {
         data: state.messagesPage,
+        isAuth: state.auth.isAuth
     }
 }
 
