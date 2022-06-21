@@ -2,6 +2,7 @@
 
 import s from './ProfileInfo.module.css'
 import Preloader from "../../common/preloader/preloader";
+import ProfileStatus from './ProfileStatus'
 
 const ProfileInfo = (props) => {
 
@@ -12,10 +13,10 @@ const ProfileInfo = (props) => {
     return (
         <div>
             <div>
-                <img src={props.profile.photos.large || "https://api.apdnews.com/uploads/20180907/NQrX4pdw8avpBH8Jj7xDtR6OOoHCeh2B.jpg"} alt=""/>
+                {/*<img src={props.profile.photos.large || "https://api.apdnews.com/uploads/20180907/NQrX4pdw8avpBH8Jj7xDtR6OOoHCeh2B.jpg"} alt=""/>*/}
             </div>
             <div className={s.discriptionBlock}>
-                ava + description
+                <ProfileStatus status={'ahjbjkdfhdf'}/>
             </div>
         </div>
     );

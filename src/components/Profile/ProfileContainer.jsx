@@ -7,6 +7,7 @@ import {withAuthRedirect} from "../../hoc/withAuthRecirect";
 import {compose} from "redux";
 import Dialogs from "../Dialogs/Dialogs";
 
+
 class ProfileContainer extends React.Component{
 
     componentDidMount() {
@@ -49,4 +50,4 @@ export default compose(
     connect(mapStateToProps, {getUserProfile}),    //3
     withRouter,         //2
     withAuthRedirect    //1
-)(Dialogs)
+)(ProfileContainer)

@@ -5,7 +5,6 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 
 const Dialogs = (props) => {
-
     let dialogsElements = props.data.dialogs.map((el, index) => {     //Так
         return <DialogItem name={ el.name } key={ index } img={el.img}/>
     })

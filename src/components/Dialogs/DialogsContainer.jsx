@@ -8,6 +8,7 @@ import {compose} from "redux";
 let mapStateToProps = (state) => {
     return {
         data: state.messagesPage,
+        profile: state.profilePage.profile,
     }
 }
 
