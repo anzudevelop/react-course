@@ -16,7 +16,7 @@ const ProfileInfo = (props) => {
                 {/*<img src={props.profile.photos.large || "https://api.apdnews.com/uploads/20180907/NQrX4pdw8avpBH8Jj7xDtR6OOoHCeh2B.jpg"} alt=""/>*/}
             </div>
             <div className={s.discriptionBlock}>
-                <ProfileStatus status={'ahjbjkdfhdf'}/>
+                <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
             </div>
         </div>
     );
