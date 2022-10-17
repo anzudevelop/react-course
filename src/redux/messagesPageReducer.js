@@ -1,5 +1,4 @@
 const ADD_MESSAGE = 'ADD-MESSAGE'
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT'
 
 let initialState = {
     dialogs: [
@@ -32,7 +31,6 @@ let initialState = {
         {id: 5, message: "Yo!", isMy: false},
         {id: 6, message: "Hello", isMy: true},
     ],
-    newMessageText: ''
 }
 
 
@@ -44,20 +42,12 @@ const messagesPageReducer = (state = initialState, action) => {
         case ADD_MESSAGE: {
             let newMsg = {
                 id: state.messages.length + 1,
-                message: state.newMessageText,
+                message: action.newMsg,
                 isMy: true,
             }
             stateCopy = {
                 ...state,
                 messages: [...state.messages, newMsg],
-                newMessageText: ''
-            }
-            return stateCopy
-        }
-        case UPDATE_NEW_MESSAGE_TEXT: {
-            stateCopy = {
-                ...state,
-                newMessageText: action.newMessageText
             }
             return stateCopy
         }
@@ -66,11 +56,6 @@ const messagesPageReducer = (state = initialState, action) => {
     }
 }
 
-export const addMessageActionCreator = () => ({type: ADD_MESSAGE})
-
-export const updateMessageTextActionCreator = (newMessageText) => ({
-    type: UPDATE_NEW_MESSAGE_TEXT,
-    newMessageText: newMessageText
-})
+export const addMessageActionCreator = (newMessageBody) => ({type: ADD_MESSAGE, newMsg: newMessageBody})
 
 export default messagesPageReducer
