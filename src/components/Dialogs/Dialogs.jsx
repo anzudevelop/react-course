@@ -3,22 +3,7 @@ import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
 import React from "react";
 import { Navigate } from "react-router-dom";
-import {Field, reduxForm} from "redux-form";
-
-const AddMessageForm = (props) => {
-    return (
-        <form onSubmit={props.handleSubmit}>
-            <div>
-                <Field component={'textarea'} name={'newMessageBody'} textarea={'Введите сообщение'} cols="30" rows="1"/>
-            </div>
-            <div>
-                <button>Отправить сообщение</button>
-            </div>
-        </form>
-    )
-}
-
-const DialogsReduxForm = reduxForm({form: 'dialogsAddMessageForm'})(AddMessageForm)
+import {ReduxForm as AddMessageForm} from "./AddMessageForm/AddMessageForm";
 
 const Dialogs = (props) => {
     let dialogsElements = props.data.dialogs.map((el, index) => {     //Так
@@ -46,7 +31,7 @@ const Dialogs = (props) => {
                 { messagesElement }
             </div>
             <div className={s.dialogsItems}>
-               <DialogsReduxForm onSubmit={addNewMessage}/>
+               <AddMessageForm onSubmit={addNewMessage}/>
             </div>
         </div>
     )
